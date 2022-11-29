@@ -1,31 +1,38 @@
 package com.example;
 
 import static org.junit.Assert.assertEquals;
-
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
+import org.mockito.InjectMocks;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.Silent.class) 
 public class LionMockTest {
-    
-    @Mock
-    Feline feline;
+
+    Lion lion;
+
+    @Before
+    public void setUp() throws Exception {
+        lion = new Lion("Самец",new Feline());
+    }
+
+    @Spy // mock it partially
+    @InjectMocks
+    private Feline feline = new Feline();
 
     @Test
     public void getKittens() {
         Mockito.when(feline.getKittens()).thenReturn(1);
-        feline = new Feline();
-        assertEquals(1, feline.getKittens());
+        
+        assertEquals(1, lion.getKittens());
     }
 
     @Test
     public void getFood() throws Exception {
-        Mockito.when(feline.getFood("Хищник")).thenReturn(Animal.predatorFoodList);
-        feline = new Feline();
-        assertEquals(Animal.predatorFoodList, feline.getFood("Хищник"));
+        Mockito.when(feline.eatMeat()).thenReturn(Animal.predatorFoodList);
+        assertEquals(Animal.predatorFoodList, lion.getFood());
     }
-
 }
