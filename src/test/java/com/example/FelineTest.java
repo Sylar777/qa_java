@@ -30,15 +30,9 @@ public class FelineTest {
         assertEquals(Animal.predatorFoodList, felineFromInterfacPredator.eatMeat());
     }
 
-    // @Test
-    // public void getKittensFirstMethod(){
-    //
-    // }
-
     @Test
     public void getKittensSecondMethod(){
         feline = new Feline();
-        int a = 1;
-        assertEquals(a, feline.getKittens(a));
+        assertEquals(1, feline.getKittens(1));
     }
 }
