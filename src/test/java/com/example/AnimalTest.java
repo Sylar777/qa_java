@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class AnimalTest {
 
-    Animal animal;
+    private Animal animal;
 
     @Before
     public void setUp() {
