@@ -4,11 +4,14 @@ import java.util.List;
 
 public class Animal {
 
+    public static List<String> herbivoreFoodList = List.of("Трава", "Различные растения");
+    public static List<String> predatorFoodList = List.of("Животные", "Птицы", "Рыба");
+
     public List<String> getFood(String animalKind) throws Exception {
         if ("Травоядное".equals(animalKind)) {
-            return List.of("Трава", "Различные растения");
+            return herbivoreFoodList;
         } else if ("Хищник".equals(animalKind)) {
-            return List.of("Животные", "Птицы", "Рыба");
+            return predatorFoodList;
         } else {
             throw new Exception("Неизвестный вид животного, используйте значение Травоядное или Хищник");
         }
