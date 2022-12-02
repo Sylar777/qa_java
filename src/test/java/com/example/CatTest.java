@@ -12,7 +12,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class CatTest {
     
     @Mock
-    Animal animal;
+    private Animal animal;
 
     Cat cat;
 

@@ -10,11 +10,11 @@ import org.junit.runners.Parameterized;
 public class AnimalParamTest {
     
     public String animalKind;
-    public List<String> result;
+    public List<String> expectedResult;
 
     public AnimalParamTest(String animalKind, List<String> result){
         this.animalKind = animalKind;
-        this.result = result;
+        this.expectedResult = result;
     }
 
     @Parameterized.Parameters(name = "AnimalKind: {0}, Expected Food: {1}")
@@ -28,6 +28,6 @@ public class AnimalParamTest {
     @Test
     public void getFood() throws Exception{
         Animal animal = new Animal();
-        assertEquals(result, animal.getFood(animalKind));
+        assertEquals(expectedResult, animal.getFood(animalKind));
     }
 }
